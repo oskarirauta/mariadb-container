@@ -65,4 +65,3 @@ for f in /scripts/entrypoint.d/*; do
 done
 
 exec "$@"
-
