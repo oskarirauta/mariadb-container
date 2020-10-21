@@ -11,7 +11,7 @@ ENV \
 RUN \
         apk --no-cache update && \
         apk --no-cache upgrade && \
-        apk --no-cache add mariadb mariadb-client mariadb-server-utils pwgen
+        apk --no-cache --update add mariadb mariadb-client mariadb-server-utils pwgen busybox-suid
         
 RUN \
         mkdir -p /scripts /scripts/entrypoint.d /run/mysqld /var/lib/mysql && \
