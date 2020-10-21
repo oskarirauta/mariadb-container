@@ -28,5 +28,7 @@ VOLUME ["/var/lib/mysql"]
 VOLUME ["/run/mysqld"]
 VOLUME ["/scripts/entrypoint.d"]
 
+STOPSIGNAL SIGTERM
+
 ENTRYPOINT ["/scripts/entrypoint.sh"]
 CMD ["/usr/bin/mysqld", "--user=mysql", "--console", "--skip-name-resolve", "--skip-networking=0"]
