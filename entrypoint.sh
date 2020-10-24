@@ -58,7 +58,7 @@ EOF
 # execute any pre-init scripts and inject sql
 for f in /scripts/entrypoint.d/*; do
 	case "$f" in
-		*.sh) [ -e "$f" ] && "$f" ;;
+		*.sh) [ -e "$f" -a -x "$f" ] && "$f" ;;
 		*.sql) echo "$0: injecting $f"; /usr/bin/mysqld --user=mysql --bootstrap --verbose=0 --skip-name-resolve --skip-networking=0 < "$f" ;;
 		*.sql.gz) echo "$0: injecting $f"; gunzip -c "$f" | /usr/bin/mysqld --user=mysql --bootstrap --verbose=0 --skip-name-resolve --skip-networking=0 < "$f" ;;
 	esac
